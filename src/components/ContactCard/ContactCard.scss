@@ -1,0 +1,37 @@
+
+@mixin buttons{
+    border:none;
+    width:5em;
+    height:2em;
+    margin: 0.5em;
+    color:#fff;
+}
+
+.ContactCardContainer{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items:center;
+    padding: 1em 0;
+    border-top: solid 1px rgb(211, 211, 211);
+
+    &__info{
+        &__name{
+            color:rgb(55, 55, 55);
+        }
+
+        &__number{
+            color:rgb(211, 211, 211);
+        }
+    }
+    &__buttons{
+        &__edit{
+            background-color: rgb(245, 166, 35);
+            @include buttons();
+        }
+
+        &__delete{
+            background-color: rgb(208, 2, 27);
+            @include buttons();
+        }
+    }
+}

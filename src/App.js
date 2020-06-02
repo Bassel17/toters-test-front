@@ -1,8 +1,9 @@
 import React from 'react';
+import ContactCard from './components/ContactCard/ContactCard';
 
 const App = () => {
     return (
-        <h1>CONTACT LIST APP</h1>
+        <ContactCard first_name="Bassel" last_name="Kanso" phone_number="76307825"/>
     );
 }
 
