@@ -1,0 +1,48 @@
+@mixin buttons{
+    border:none;
+    width:5em;
+    height:2em;
+    margin: 0.5em;
+    color:#fff;
+}
+
+.ContactForm{
+    height: 60vh;
+    border: solid 1px rgb(158, 158, 158);
+    &__info{
+        display:grid;
+        grid-template: 1fr/1fr 4fr;
+        justify-items: center;
+        align-items:center;
+        margin:1em 0;
+
+        &__input{
+            border:solid 1px rgb(158, 158, 158);
+            border-radius: 0px;
+            padding: 5px;
+        }
+
+        &__label{
+            justify-self: center;
+            color:rgb(55, 55, 55);
+        }
+
+        &__buttons{
+
+            grid-column: 2/3;
+            grid-row:1/2;
+
+            &__cancel{
+                @include buttons();
+                background-color: rgb(158, 158, 158);
+            }
+    
+            &__edit{
+                @include buttons();
+                background-color: rgb(126, 211, 33);
+            }
+        }
+
+    }
+
+}
