@@ -2,6 +2,11 @@ import React from 'react';
 import Home from './pages/home/Home';
 import Edit from './pages/edit/Edit';
 import View from './pages/view/View';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
 
 const data = [
 {
@@ -22,7 +27,22 @@ const data = [
 
 const App = () => {
     return (
-        <View contact={data[0]}/>
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Home data = {data}/>
+                </Route>
+                <Route exact path="/edit">
+                    <Edit/>
+                </Route>
+                <Route exact path="/add">
+                    <Edit/>
+                </Route>
+                <Route exact path="/contact">
+                    <View contact/>
+                </Route>
+            </Switch>
+        </Router>
     );
 }
 

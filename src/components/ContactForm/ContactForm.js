@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './ContactForm.scss';
+import { Link } from "react-router-dom";
 
 const ContactForm = (props) => {
 
@@ -48,8 +49,8 @@ const ContactForm = (props) => {
             
             <div className="ContactForm__info">
                 <div className="ContactForm__info__buttons">
-                    <button className="ContactForm__info__buttons__cancel">cancel</button>
-                    <button className="ContactForm__info__buttons__edit">save</button>
+                    <Link to="/"><button className="ContactForm__info__buttons__cancel">cancel</button></Link>
+                    <Link to="/"><button className="ContactForm__info__buttons__edit">save</button></Link>
                 </div>
             </div>
         </form>
