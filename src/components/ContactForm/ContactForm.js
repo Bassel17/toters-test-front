@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './ContactForm.scss';
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 
 const ContactForm = (props) => {
-
+    const history = useHistory();
     const [firstName,setFirstName] = useState(props.firstName);
     const [lastName,setLastName] = useState(props.lastName);
     const [phoneNumber,setPhoneNumber] = useState(props.phoneNumber);
@@ -25,7 +25,7 @@ const ContactForm = (props) => {
         setEmail(event.target.value);
     }
 
-    const saveContact = () => {
+    const saveContact = async () => {
         if (firstName !=="" && phoneNumber !==""){
             if(props.id === ""){
                 props.saveContact({
@@ -35,6 +35,9 @@ const ContactForm = (props) => {
                     phone_number: phoneNumber,
                     email:email
                 });
+                history.push({
+                    pathname:"/"
+                })
             }else{
                 props.saveContact({
                     id:props.id,
@@ -43,6 +46,9 @@ const ContactForm = (props) => {
                     phone_number: phoneNumber,
                     email:email
                 });
+                history.push({
+                    pathname:"/"
+                })
             }
         }
     }
@@ -72,7 +78,7 @@ const ContactForm = (props) => {
             <div className="ContactForm__info">
                 <div className="ContactForm__info__buttons">
                     <Link to="/"><button className="ContactForm__info__buttons__cancel">cancel</button></Link>
-                    <Link to="/"><button className="ContactForm__info__buttons__edit" onClick={saveContact}>save</button></Link>
+                    <button className="ContactForm__info__buttons__edit" onClick={saveContact}>save</button>
                 </div>
             </div>
         </form>

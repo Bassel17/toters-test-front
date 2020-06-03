@@ -25,18 +25,49 @@ const App = () => {
         }
 
         getContacts();
-      });
+      },[]);
 
-    const deleteContact = (id) => {
+    const deleteContact = async (id) => {
         const newContacts = contacts.filter((contact)=>contact.id !== id);
         setContacts(newContacts);
+        try{
+            const response = await fetch(
+            `${process.env.REACT_APP_API}/contact`,{
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    id:id
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }catch(error){
+            console.log(error);
+        }
     }
 
-    const saveContact = (contact) => {
+    const saveContact = async (contact) => {
         setContacts([...contacts,contact]);
+        try{
+            console.log(contact)
+            const response = await fetch(
+            `${process.env.REACT_APP_API}/contact`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify(contact)
+            });
+            const result = await response.json();
+            console.log(result);
+        }catch(error){
+            console.log(error);
+        }
     }
 
-    const editContact = (contact) => {
+    const editContact = async (contact) => {
         const newContacts = [];
         contacts.forEach((element)=>{
             if(element.id === contact.id)
@@ -44,6 +75,21 @@ const App = () => {
             newContacts.push(element);
         });
         setContacts(newContacts);
+        try{
+            console.log(contact)
+            const response = await fetch(
+            `${process.env.REACT_APP_API}/contact`,{
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify(contact)
+            });
+            const result = await response.json();
+            console.log(result);
+        }catch(error){
+            console.log(error);
+        }
     }
 
     return (
