@@ -14,6 +14,10 @@ const ContactCard = (props) => {
         });
     }
 
+    const deleteContact = ()=>{
+        props.deleteContact(props.contact.id);
+    }
+
     return (
         <div className="ContactCardContainer">
             <div className="ContactCardContainer__info" onClick={change}>
@@ -27,7 +31,7 @@ const ContactCard = (props) => {
                     contact:props.contact
                 }
             }}><button className="ContactCardContainer__buttons__edit">edit</button></Link>
-                <Link to="/"><button className="ContactCardContainer__buttons__delete">delete</button></Link>
+                <Link to="/"><button className="ContactCardContainer__buttons__delete" onClick={deleteContact}>delete</button></Link>
             </div>
         </div>
     );

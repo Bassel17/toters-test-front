@@ -5,9 +5,13 @@ import {
     useLocation
 } from "react-router-dom";
 
-const View = () => {
+const View = (props) => {
     const location = useLocation();
     const contact = location.state.contact;
+
+    const deleteContact = ()=>{
+        props.deleteContact(contact.id);
+    }
 
     return (
         <div className="container">
@@ -25,7 +29,7 @@ const View = () => {
                     contact:contact
                 }
             }} ><button className="view__buttons__edit">edit</button></Link>
-            <Link to="/"><button className="view__buttons__delete">delete</button></Link>
+            <Link to="/"><button className="view__buttons__delete" onClick={deleteContact}>delete</button></Link>
             </div>
         </div>
         </div>

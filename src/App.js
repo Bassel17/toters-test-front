@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Home from './pages/home/Home';
 import Edit from './pages/edit/Edit';
 import View from './pages/view/View';
@@ -6,6 +6,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
+    useHistory,
   } from "react-router-dom";
 
 const data = [
@@ -26,11 +27,17 @@ const data = [
 ]
 
 const App = () => {
+    const [contacts,setContacts] = useState(data)
+
+    const deleteContact = (id) => {
+        const newContacts = contacts.filter((contact)=>contact.id !== id);
+        setContacts(newContacts);
+    }
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <Home data = {data}/>
+                    <Home data = {contacts} deleteContact={deleteContact}/>
                 </Route>
                 <Route exact path="/edit">
                     <Edit/>
@@ -39,7 +46,7 @@ const App = () => {
                     <Edit/>
                 </Route>
                 <Route exact path="/contact">
-                    <View contact/>
+                    <View deleteContact={deleteContact}/>
                 </Route>
             </Switch>
         </Router>

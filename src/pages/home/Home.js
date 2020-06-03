@@ -9,7 +9,7 @@ const Home = (props) => {
             <Link to="/add" className="home__link"><button className="home__NewButton">new</button></Link>
             <div className="home__contacts">
             {props.data.map((contact)=>{
-                return <ContactCard key={contact.id} contact= {contact}/>
+                return <ContactCard key={contact.id} contact= {contact} deleteContact = {props.deleteContact}/>
             })}
             </div>
         </div>
