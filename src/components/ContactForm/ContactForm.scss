@@ -9,6 +9,7 @@
 .ContactForm{
     height: 60vh;
     border: solid 1px rgb(158, 158, 158);
+    padding: 2em;
     &__info{
         display:grid;
         grid-template: 1fr/1fr 4fr;

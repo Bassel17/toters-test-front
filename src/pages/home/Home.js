@@ -8,7 +8,7 @@ const Home = (props) => {
             <button className="home__NewButton">new</button>
             <div className="home__contacts">
             {props.data.map((contact)=>{
-                return <ContactCard first_name = {contact.first_name} last_name={contact.last_name} phone_number={contact.phone_number}/>
+                return <ContactCard key={contact.id} first_name = {contact.first_name} last_name={contact.last_name} phone_number={contact.phone_number}/>
             })}
             </div>
         </div>

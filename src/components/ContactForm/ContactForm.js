@@ -5,7 +5,7 @@ const ContactForm = (props) => {
 
     const [firstName,setFirstName] = useState(props.firstName);
     const [lastName,setLastName] = useState(props.lastName);
-    const [phoneNumber,setPhoneNumber] = useState(props.phoneName);
+    const [phoneNumber,setPhoneNumber] = useState(props.phoneNumber);
     const [email,setEmail] = useState(props.email);
 
     const changeFirstName = (event)=>{
