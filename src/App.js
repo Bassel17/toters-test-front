@@ -33,6 +33,11 @@ const App = () => {
         const newContacts = contacts.filter((contact)=>contact.id !== id);
         setContacts(newContacts);
     }
+
+    const saveContact = (contact) => {
+        setContacts([...contacts,contact]);
+    }
+
     return (
         <Router>
             <Switch>
@@ -43,7 +48,7 @@ const App = () => {
                     <Edit/>
                 </Route>
                 <Route exact path="/add">
-                    <Edit/>
+                    <Edit saveContact = {saveContact}/>
                 </Route>
                 <Route exact path="/contact">
                     <View deleteContact={deleteContact}/>
