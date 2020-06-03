@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './pages/home/Home';
 import Edit from './pages/edit/Edit';
+import View from './pages/view/View';
 
 const data = [
 {
@@ -21,7 +22,7 @@ const data = [
 
 const App = () => {
     return (
-        <Edit contact={data[0]}/>
+        <View contact={data[0]}/>
     );
 }
 

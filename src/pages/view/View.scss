@@ -1,0 +1,50 @@
+@mixin buttons{
+    border:none;
+    width:5em;
+    height:2em;
+    margin: 0.5em;
+    color:#fff;
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    height: 70vh;
+    .view{
+        grid-column: 2/3;
+        margin:2em;
+        padding:1em;
+        border: solid 1px rgb(158, 158, 158);
+
+        &__info{
+            h3{
+                color:rgb(55, 55, 55);
+            }   
+
+            p{
+                color:rgb(158, 158, 158);;
+            }
+        }
+
+        &__buttons{
+            display: flex;
+            justify-content: flex-end;
+            margin: 1em 0;
+            &__back{
+                @include buttons();
+                background-color: rgb(158, 158, 158);
+            }
+
+            &__edit{
+                @include buttons();
+                background-color: rgb(245, 166, 35);
+            }
+
+            &__delete{
+                @include buttons();
+                background-color: rgb(208, 2, 27);
+            }
+
+        }
+    }
+}
