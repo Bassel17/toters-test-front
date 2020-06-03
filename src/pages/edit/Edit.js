@@ -16,6 +16,7 @@ const Edit = (props) => {
                 lastName = {contact?.last_name !== undefined ? contact.last_name : ""}
                 phoneNumber = {contact?.phone_number !== undefined ? contact.phone_number : ""}
                 email = {contact?.email !== undefined ? contact.email : ""}
+                id = {contact?.id !== undefined ? contact.id : ""}
             />
         </div>
     )

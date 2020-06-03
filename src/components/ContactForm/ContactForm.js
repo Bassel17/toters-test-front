@@ -27,13 +27,23 @@ const ContactForm = (props) => {
 
     const saveContact = () => {
         if (firstName !=="" && phoneNumber !==""){
-            props.saveContact({
-                id:0,
-                first_name: firstName,
-                last_name: lastName,
-                phone_number: phoneNumber,
-                email:email
-            });
+            if(props.id === ""){
+                props.saveContact({
+                    id:0,
+                    first_name: firstName,
+                    last_name: lastName,
+                    phone_number: phoneNumber,
+                    email:email
+                });
+            }else{
+                props.saveContact({
+                    id:props.id,
+                    first_name: firstName,
+                    last_name: lastName,
+                    phone_number: phoneNumber,
+                    email:email
+                });
+            }
         }
     }
     

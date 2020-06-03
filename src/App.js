@@ -38,6 +38,16 @@ const App = () => {
         setContacts([...contacts,contact]);
     }
 
+    const editContact = (contact) => {
+        const newContacts = [];
+        contacts.forEach((element)=>{
+            if(element.id === contact.id)
+                element = {...contact};
+            newContacts.push(element);
+        });
+        setContacts(newContacts);
+    }
+
     return (
         <Router>
             <Switch>
@@ -45,7 +55,7 @@ const App = () => {
                     <Home data = {contacts} deleteContact={deleteContact}/>
                 </Route>
                 <Route exact path="/edit">
-                    <Edit/>
+                    <Edit saveContact = {editContact}/>
                 </Route>
                 <Route exact path="/add">
                     <Edit saveContact = {saveContact}/>
