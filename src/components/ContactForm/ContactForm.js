@@ -3,10 +3,10 @@ import './ContactForm.scss';
 
 const ContactForm = (props) => {
 
-    const [firstName,setFirstName] = useState("");
-    const [lastName,setLastName] = useState("");
-    const [phoneNumber,setPhoneNumber] = useState("");
-    const [email,setEmail] = useState("");
+    const [firstName,setFirstName] = useState(props.firstName);
+    const [lastName,setLastName] = useState(props.lastName);
+    const [phoneNumber,setPhoneNumber] = useState(props.phoneName);
+    const [email,setEmail] = useState(props.email);
 
     const changeFirstName = (event)=>{
         setFirstName(event.value);
@@ -49,7 +49,7 @@ const ContactForm = (props) => {
             <div className="ContactForm__info">
                 <div className="ContactForm__info__buttons">
                     <button className="ContactForm__info__buttons__cancel">cancel</button>
-                    <button className="ContactForm__info__buttons__edit">edit</button>
+                    <button className="ContactForm__info__buttons__edit">save</button>
                 </div>
             </div>
         </form>
